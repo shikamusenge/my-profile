@@ -40,10 +40,10 @@ export function SiteHeader() {
 
         {!isMobile ? (
           <nav className="flex items-center gap-8">
-            {["Home", "About", "Experience", "Portfolio", "Blog", "Contact"].map((item) => (
+            {["Home", "About", "Experience", "Portfolio", "Contact"].map((item) => (
               <Link
                 key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
               >
                 {item}

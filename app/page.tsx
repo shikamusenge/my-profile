@@ -5,11 +5,12 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight, Code2, Download, Globe, Layers, Mail, MapPin, Sparkles, Star } from "lucide-react"
+import { ChevronRight, Code2, Download, Globe, Layers, Mail, MapPin, Sparkles, Star,Github, Linkedin, Twitter } from "lucide-react"
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
 import { FeaturedProjects } from "@/components/projects/featured-projects"
 import { projects } from "@/data/projects"
+
 
 export default function Home() {
   const isMobile = useMobile()
@@ -33,7 +34,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-44">
+      <section id="about" className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-44">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-grid-black/[0.03] dark:bg-grid-white/[0.02] -z-10 light-texture" />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-50/90 to-white/90 dark:from-zinc-950/80 dark:to-zinc-900/80 backdrop-blur-sm -z-10" />
@@ -173,7 +174,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 md:py-32">
+      <section id="service" className="py-20 md:py-32">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -238,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+      <section id="skills" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -292,10 +293,43 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section - Now using the component */}
-      <FeaturedProjects projects={projects} />
+      <FeaturedProjects  projects={projects} />
+      <section className="container mx-auto px-4 md:px-6 py-12" id="experience">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Experience</h2>
+    <div className="space-y-8">
+      
+      <div className="border-l-4 border-purple-600 pl-4">
+        <h3 className="text-xl font-semibold">Trainer in Software Development</h3>
+        <p className="text-gray-600 dark:text-gray-400">Garden TSS — <span className="italic">SEP - 2024 to Jan - 2025</span></p>
+        <p className="mt-2 text-gray-700 dark:text-gray-300">Providing hands-on training to students in software development, focusing on modern technologies and project-based learning.</p>
+      </div>
+
+      <div className="border-l-4 border-purple-600 pl-4">
+        <h3 className="text-xl font-semibold">Back-end Developer</h3>
+        <p className="text-gray-600 dark:text-gray-400">Kitech — August 2024 to September 2024</p>
+        <p className="mt-2 text-gray-700 dark:text-gray-300">Worked on building scalable APIs and backend services using modern development tools, contributing to active product development and deployment.</p>
+      </div>
+
+      <div className="border-l-4 border-purple-600 pl-4">
+        <h3 className="text-xl font-semibold">ITC Officer Intern</h3>
+        <p className="text-gray-600 dark:text-gray-400">KIBUNGO Level II Teaching Hospital — July 2024 to September 2024</p>
+        <p className="mt-2 text-gray-700 dark:text-gray-300">Supported the hospital's IT department by maintaining networks, troubleshooting hardware/software, and assisting in the management of digital health systems.</p>
+      </div>
+
+      <div className="border-l-4 border-purple-600 pl-4">
+        <h3 className="text-xl font-semibold">Software Developer Intern</h3>
+        <p className="text-gray-600 dark:text-gray-400">IDA TECHNOLOGY — September 2023 to October 2023</p>
+        <p className="mt-2 text-gray-700 dark:text-gray-300">Assisted in software development projects involving front-end and back-end coding, gained hands-on experience with agile workflows and collaboration tools.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+      <section id="testimonials" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
         <div className="container px-4 md:px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -365,42 +399,63 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-black/[0.03] dark:bg-grid-white/[0.02] -z-10 light-texture" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-white/90 dark:from-gray-900/80 dark:to-gray-900/80 backdrop-blur-sm -z-10" />
+      <div id="contact" className="container px-4 md:px-6 mx-auto py-16">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="max-w-2xl mx-auto text-center"
+  >
+    <Badge
+      variant="outline"
+      className="px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20 dark:border-purple-400/20 mb-4"
+    >
+      Contact
+    </Badge>
+    <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
+    <p className="text-gray-600 dark:text-gray-400 mb-6">
+      I'm currently available for freelance work and full-time opportunities. If you're interested in working
+      together, please get in touch!
+    </p>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40 -z-10" />
-        <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-200 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 -z-10" />
+    <div className="space-y-2 text-gray-700 dark:text-gray-300 mb-8">
+      <p>
+        📧 <a href="mailto:shikamusenge720@gmail.com" className="text-blue-600 hover:underline">shikamusenge720@gmail.com</a>
+      </p>
+      <p>
+        📱 <a href="tel:+250123456789" className="text-blue-600 hover:underline">+250 784 589 448</a>
+      </p>
+      <p>
+        🌍 Kigali, Rwanda
+      </p>
+    </div>
 
-        <div className="container px-4 md:px-6 mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <Badge
-              variant="outline"
-              className="px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20 dark:border-purple-400/20 mb-4"
-            >
-              Contact
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-8">
-              I'm currently available for freelance work and full-time opportunities. If you're interested in working
-              together, please get in touch.
-            </p>
-            <Button
-              size="lg"
-              className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300"
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              Contact Me
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+    <div className="flex justify-center gap-4 mb-8">
+      <a href="https://github.com/shikamusenge" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black dark:hover:text-white">
+        <Github className="h-6 w-6" />
+      </a>
+      <a href="https://wa.me/+250784589448" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black dark:hover:text-white">
+        WhatsApp
+      </a>
+      <a href="https://www.linkedin.com/in/shikamusenge-philemon-86494b291/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600">
+        <Linkedin className="h-6 w-6" />
+      </a>
+      <a href="https://twitter.com/ShikamusengeP" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-400">
+        <Twitter className="h-6 w-6" />
+      </a>
+    </div>
+
+    <Button
+      size="lg"
+      className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300"
+      onClick={() => window.location.href = "mailto:your.email@example.com"}
+    >
+      <Mail className="mr-2 h-4 w-4" />
+      Contact Me
+    </Button>
+  </motion.div>
+</div>
+
     </div>
   )
 }
