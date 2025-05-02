@@ -356,7 +356,7 @@ export default function Home() {
                 quote:
                   "Shikamusenge delivered our project ahead of schedule and exceeded all our expectations. His attention to detail and problem-solving skills are exceptional.",
                 author: "IZABAYO Samuel",
-                role: "SELEF Employed",
+                role: "CEO SamTech Grp Ltd.",
               },
               {
                 quote:
@@ -423,7 +423,7 @@ export default function Home() {
         📧 <a href="mailto:shikamusenge720@gmail.com" className="text-blue-600 hover:underline">shikamusenge720@gmail.com</a>
       </p>
       <p>
-        📱 <a href="tel:+250123456789" className="text-blue-600 hover:underline">+250 784 589 448</a>
+        📱 <a href="tel:+250784589448" className="text-blue-600 hover:underline">+250 784 589 448</a>
       </p>
       <p>
         🌍 Kigali, Rwanda
