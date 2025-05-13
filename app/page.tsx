@@ -5,7 +5,17 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight, Code2, Download, Globe, Layers, Mail, MapPin, Sparkles, Star,Github, Linkedin, Twitter } from "lucide-react"
+import { ChevronRight, Code2, Download, Globe, Layers, Mail, MapPin, Sparkles, Star,Github, Linkedin, Twitter, Code,
+  Atom,
+  ServerCog,
+  Database,
+  Braces,
+  GitBranch,
+  Cloud,
+  Box,
+  BadgeCheck,
+  LayoutDashboard,
+  TerminalSquare,} from "lucide-react"
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
 import { FeaturedProjects } from "@/components/projects/featured-projects"
@@ -13,9 +23,23 @@ import { projects } from "@/data/projects"
 
 
 export default function Home() {
+
   const isMobile = useMobile()
   const heroRef = useRef<HTMLDivElement>(null)
-
+const skills = [
+  { name: "JavaScript", icon: <Braces className="w-6 h-6 text-yellow-500" /> },
+  { name: "TypeScript", icon: <Braces className="w-6 h-6 text-blue-600" /> },
+  { name: "React", icon: <Atom className="w-6 h-6 text-cyan-500" /> },
+  { name: "Next.js", icon: <LayoutDashboard className="w-6 h-6 text-black dark:text-white" /> },
+  { name: "Node.js", icon: <ServerCog className="w-6 h-6 text-green-600" /> },
+  { name: "Express", icon: <TerminalSquare className="w-6 h-6 text-gray-500 dark:text-gray-300" /> },
+  { name: "MongoDB", icon: <Database className="w-6 h-6 text-green-500" /> },
+  { name: "PostgreSQL", icon: <Database className="w-6 h-6 text-blue-500" /> },
+  { name: "TailwindCSS", icon: <Layers className="w-6 h-6 text-sky-500" /> },
+  { name: "Git", icon: <GitBranch className="w-6 h-6 text-orange-500" /> },
+  { name: "Docker", icon: <Box className="w-6 h-6 text-blue-400" /> },
+  { name: "AWS", icon: <Cloud className="w-6 h-6 text-orange-500" /> },
+];
   useEffect(() => {
     const handleScroll = () => {
       if (heroRef.current) {
@@ -34,7 +58,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
       {/* Hero Section */}
-      <section id="about" className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-44">
+      <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-44">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-grid-black/[0.03] dark:bg-grid-white/[0.02] -z-10 light-texture" />
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-50/90 to-white/90 dark:from-zinc-950/80 dark:to-zinc-900/80 backdrop-blur-sm -z-10" />
@@ -144,6 +168,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+    
 
       {/* Stats Section */}
       <section className="py-12 border-y border-gray-100 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
@@ -172,7 +197,37 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+    
+    {/* About Section */
+    }
+   <section id="about" className="bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 px-6 md:px-20">
+      <div className="max-w-5xl mx-auto text-center">
+        <div className="flex justify-center mb-4">
+          <Sparkles className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-pulse" />
+        </div>
+        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight">
+          Turning Ideas into Impactful Code
+        </h2>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+          I'm <span className="font-semibold text-blue-600 dark:text-blue-400">SHIKAMUSENGE Philemon</span>, a full-stack developer driven by innovation, efficiency, and impact. With a love for clean code and smart systems, I build software that makes life easier, businesses smarter, and experiences smoother.
+        </p>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+          Whether it’s building dynamic React interfaces, structuring backends with Node.js & Express, or deploying intelligent solutions with MongoDB, I thrive on crafting tech that solves real-world problems.
+        </p>
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+          I co-founded <span className="font-medium text-blue-600 dark:text-blue-400">Tyaza Limited</span> and gained field experience through a software internship at <span className="italic">IDA Technology</span>. I’m a holder of Advanced Diploma in IT from <span className="font-medium">RP Ngoma College</span> and always exploring new horizons in AI and user-focused design.
+        </p>
+        <div className="mt-10">
+          <a
+            href="/SHIKAMUSENGE_Philemon_CV.pdf"
+            target="_blank"
+            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-300"
+          >
+            📄 Download CV
+          </a>
+        </div>
+      </div>
+    </section>
       {/* Services Section */}
       <section id="service" className="py-20 md:py-32">
         <div className="container px-4 md:px-6 mx-auto">
@@ -262,32 +317,20 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {[
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Next.js",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "PostgreSQL",
-              "TailwindCSS",
-              "Git",
-              "Docker",
-              "AWS",
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 h-full flex items-center justify-center light-card">
-                  <div className="font-medium">{skill}</div>
-                </div>
-              </motion.div>
-            ))}
+          {skills.map((skill, index) => (
+  <motion.div
+    key={skill.name}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3, delay: index * 0.05 }}
+  >
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 h-full flex flex-col items-center justify-center gap-2">
+      {skill.icon}
+      <div className="font-medium">{skill.name}</div>
+    </div>
+  </motion.div>
+))}
           </div>
         </div>
       </section>

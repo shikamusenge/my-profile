@@ -9,24 +9,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
 
 export function SiteHeader() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isMobile = useMobile()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
+    className={`sticky top-0 z-50 w-full transition-all duration-300 bg-white dark:bg-gray-900`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         <div className="flex items-center gap-2">
@@ -43,7 +32,7 @@ export function SiteHeader() {
             {["Home", "About", "Experience", "Portfolio", "Contact"].map((item) => (
               <Link
                 key={item}
-                href={item === "Home" ? "/" : `#${item.toLowerCase()}`}
+                href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
                 className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
               >
                 {item}
@@ -59,7 +48,9 @@ export function SiteHeader() {
         <div className="hidden md:flex items-center gap-4">
           <ModeToggle />
           <Button className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300">
+            <Link href="/hireme">
             Hire me
+            </Link>
           </Button>
         </div>
       </div>
@@ -95,7 +86,7 @@ export function SiteHeader() {
                   transition={{ delay: i * 0.05 }}
                 >
                   <Link
-                    href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                    href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
                     className="text-xl font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -108,7 +99,9 @@ export function SiteHeader() {
             <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100 dark:border-gray-800">
               <ModeToggle />
               <Button className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300">
+                <Link href="/hireme">
                 Hire me
+                </Link>
               </Button>
             </div>
           </motion.div>
