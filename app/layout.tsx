@@ -11,7 +11,7 @@ export const metadata = {
   title: "Shikamusenge Philemon | Full Stack Developer",
   description:
     "Professional portfolio of Shikamusenge Philemon, a passionate full-stack developer specializing in modern web technologies.",
-    generator: 'v0.dev'
+    generator: 'INTASOBWA TECH'
 }
 
 export default function RootLayout({
@@ -21,6 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <link rel="icon" href="/philemon.png" />
       <body className={`inter.className`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
