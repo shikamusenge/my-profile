@@ -5,8 +5,8 @@ export interface Project {
   longDescription?: string
   image: string
   screenshots?: string[]
-  demoUrl: string
-  codeUrl: string
+  demoUrl?: string
+  codeUrl?: string
   tags: string[]
   category: string
   featured: boolean
