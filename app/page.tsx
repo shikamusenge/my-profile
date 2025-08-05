@@ -58,61 +58,69 @@ const skills = [
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-32 md:pt-32 md:pb-44">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-grid-black/[0.03] dark:bg-grid-white/[0.02] -z-10 light-texture" />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-50/90 to-white/90 dark:from-zinc-950/80 dark:to-zinc-900/80 backdrop-blur-sm -z-10" />
+           <section className="relative overflow-hidden pt-32 pb-44">
+        {/* Animated Code Background */}
+        <div className="absolute inset-0 overflow-hidden opacity-20 dark:opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDE1MywxMDIsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]"></div>
+        </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40 -z-10" />
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-200 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40 -z-10" />
+        {/* Floating Tech Elements */}
+        <div className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-purple-500/10 blur-xl animate-float"></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-500/10 blur-xl animate-float animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-20 h-20 rounded-full bg-emerald-500/10 blur-xl animate-float animation-delay-4000"></div>
 
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16">
-            <div className="flex-1 space-y-8" ref={heroRef}>
+          <div className="flex flex-col items-center text-center">
+            <div className="flex-1 space-y-8 max-w-3xl" ref={heroRef}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="space-y-4"
+                className="space-y-6"
               >
                 <Badge
                   variant="outline"
                   className="px-3 py-1 text-sm font-medium rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20 dark:border-purple-400/20"
                 >
                   <Sparkles className="w-3.5 h-3.5 mr-1.5" />
-                  Available for hire
-                </Badge>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400">
-                  Hello, I'm <span className="text-purple-600 dark:text-purple-400">Shikamusenge</span>
-                </h1>
-                <p className="text-2xl md:text-3xl font-medium text-gray-600 dark:text-gray-300">
                   Full Stack Developer
-                </p>
+                </Badge>
+                
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400">
+                    SHIKAMUSENGE
+                  </span>
+                </h1>
+                
+                <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
+                  <TerminalSquare className="h-5 w-5 text-purple-600 dark:text-purple-400 mr-2" />
+                  <span className="text-lg font-mono text-gray-700 dark:text-gray-300">
+                    $ npm run create-awesome-app
+                  </span>
+                </div>
               </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed"
+                className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
               >
-                I'm a passionate and dedicated full-stack developer with a knack for leveraging the latest technologies
-                to bring creative solutions to life through the power of coding.
+                I architect digital experiences that blend innovative technology with intuitive design, crafting solutions that solve real problems.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap justify-center gap-4"
               >
                 <Button
                   size="lg"
-                  className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300"
+                  className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 group"
                 >
-                  View My Work
-                  <ChevronRight className="ml-2 h-4 w-4" />
+                  <span>Explore My Work</span>
+                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
                   size="lg"
@@ -128,47 +136,21 @@ const skills = [
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex items-center gap-6 text-gray-600 dark:text-gray-400"
+                className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400"
               >
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-purple-500 dark:text-purple-400" />
-                  <span>Remote</span>
+                  <span>Kigali, Rwanda</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-purple-500 dark:text-purple-400" />
-                  <span>Available for projects</span>
+                  <span>shikamusenge720@gmail.com</span>
                 </div>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative w-full lg:w-1/2 aspect-square max-w-md"
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500/20 to-blue-500/10 -z-10 blur-3xl" />
-              <div
-                className="absolute inset-0 rounded-full border border-purple-500/10 dark:border-purple-400/10 -z-10 animate-pulse"
-                style={{ animationDuration: "4s" }}
-              />
-              <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-white dark:border-gray-800 shadow-2xl">
-                <MotionImage
-                  src="philemon.png"
-                  alt="Profile image"
-                  fill
-                  className="object-cover"
-                  priority
-                  initial={{ scale: 1.1 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.7 }}
-                />
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
-    
 
       {/* Stats Section */}
       <section className="py-12 border-y border-gray-100 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
