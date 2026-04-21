@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,7 +16,7 @@ import { ChevronRight, Code2, Download, Globe, Layers, Mail, MapPin, Sparkles, S
   Box,
   BadgeCheck,
   LayoutDashboard,
-  TerminalSquare,} from "lucide-react"
+  TerminalSquare, ArrowUpRight,} from "lucide-react"
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
 import { FeaturedProjects } from "@/components/projects/featured-projects"
@@ -56,7 +57,9 @@ const skills = [
   const MotionImage = motion(Image)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
+    <div className="relative isolate min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
+      <div className="pointer-events-none absolute -top-28 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-purple-500/20 blur-3xl dark:bg-purple-500/30" />
+      <div className="pointer-events-none absolute top-80 right-0 -z-10 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-400/20" />
       {/* Hero Section */}
            <section className="relative overflow-hidden pt-32 pb-44">
         {/* Animated Code Background */}
@@ -92,7 +95,7 @@ const skills = [
                   </span>
                 </h1>
                 
-                <div className="inline-flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
+                <div className="inline-flex items-center px-4 py-2 rounded-full border border-purple-200/70 bg-white/80 shadow-sm backdrop-blur-sm dark:border-purple-500/20 dark:bg-gray-800/80">
                   <TerminalSquare className="h-5 w-5 text-purple-600 dark:text-purple-400 mr-2" />
                   <span className="text-lg font-mono text-gray-700 dark:text-gray-300">
                     $ npm run create-awesome-app
@@ -117,18 +120,24 @@ const skills = [
               >
                 <Button
                   size="lg"
+                  asChild
                   className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 group"
                 >
-                  <span>Explore My Work</span>
-                  <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Link href="/projects">
+                    <span>Explore My Work</span>
+                    <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+                  asChild
+                  className="rounded-full border-gray-300 bg-white/70 dark:border-gray-700 dark:bg-gray-900/40 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
                 >
-                  <Download className="mr-2 h-4 w-4" />
-                  Download CV
+                  <a href="/SHIKAMUSENGE_Philemon_CV.pdf" target="_blank" rel="noreferrer">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download CV
+                  </a>
                 </Button>
               </motion.div>
 
@@ -168,7 +177,7 @@ const skills = [
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                className="rounded-2xl border border-purple-100/60 bg-white/70 py-4 text-center backdrop-blur-sm dark:border-purple-500/10 dark:bg-gray-900/40"
               >
                 <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                   {stat.number}
@@ -260,7 +269,7 @@ const skills = [
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                <Card className="h-full border-0 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden light-card">
+                <Card className="h-full border border-purple-100/60 bg-white/90 dark:border-purple-500/10 dark:bg-gray-800 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 overflow-hidden light-card">
                   <CardContent className="p-6 md:p-8">
                     <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white dark:group-hover:bg-purple-500 transition-all duration-300">
                       {service.icon}
@@ -307,7 +316,7 @@ const skills = [
     viewport={{ once: true }}
     transition={{ duration: 0.3, delay: index * 0.05 }}
   >
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 h-full flex flex-col items-center justify-center gap-2">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 h-full flex flex-col items-center justify-center gap-2">
       {skill.icon}
       <div className="font-medium">{skill.name}</div>
     </div>
@@ -403,7 +412,7 @@ const skills = [
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full border-0 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300 light-card">
+                <Card className="h-full border border-purple-100/60 bg-white dark:bg-gray-800 dark:border-purple-500/10 shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 light-card">
                   <CardContent className="p-6 md:p-8">
                     <div className="flex mb-6">
                       {[...Array(5)].map((_, i) => (
@@ -455,28 +464,32 @@ const skills = [
       </p>
     </div>
 
-    <div className="flex justify-center gap-4 mb-8">
-      <a href="https://github.com/shikamusenge" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black dark:hover:text-white">
-        <Github className="h-6 w-6" />
+    <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <a href="https://github.com/shikamusenge" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 hover:text-black dark:hover:text-white hover:border-purple-300 dark:hover:border-purple-500 transition-all">
+        <Github className="h-5 w-5" />
+        GitHub
       </a>
-      <a href="https://wa.me/+250784589448" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black dark:hover:text-white">
+      <a href="https://wa.me/+250784589448" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 hover:text-black dark:hover:text-white hover:border-purple-300 dark:hover:border-purple-500 transition-all">
         WhatsApp
       </a>
-      <a href="https://www.linkedin.com/in/shikamusenge-philemon-86494b291/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600">
-        <Linkedin className="h-6 w-6" />
+      <a href="https://www.linkedin.com/in/shikamusenge-philemon-86494b291/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-all">
+        <Linkedin className="h-5 w-5" />
+        LinkedIn
       </a>
-      <a href="https://twitter.com/ShikamusengeP" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-400">
-        <Twitter className="h-6 w-6" />
+      <a href="https://twitter.com/ShikamusengeP" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 px-4 py-2 text-gray-600 hover:text-blue-400 hover:border-blue-300 transition-all">
+        <Twitter className="h-5 w-5" />
+        X
       </a>
     </div>
 
     <Button
       size="lg"
       className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300"
-      onClick={() => window.location.href = "mailto:your.email@example.com"}
+      onClick={() => window.location.href = "mailto:shikamusenge720@gmail.com"}
     >
       <Mail className="mr-2 h-4 w-4" />
       Contact Me
+      <ArrowUpRight className="h-4 w-4" />
     </Button>
   </motion.div>
 </div>
