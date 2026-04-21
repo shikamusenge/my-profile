@@ -10,30 +10,40 @@ import { useMobile } from "@/hooks/use-mobile"
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const isMobile = useMobile()
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
     <header
-    className={`sticky top-0 z-50 w-full transition-all duration-300 bg-white dark:bg-gray-900`}
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? "glass border-b border-white/20 dark:border-white/10 shadow-lg shadow-black/5"
+          : "bg-transparent"
+      }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <Link
             href="/"
-            className="font-bold text-xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400"
+            className="font-bold text-xl md:text-2xl gradient-text"
           >
             P. SHIKAMUSENGE
           </Link>
         </div>
 
         {!isMobile ? (
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-1">
             {["Home", "About", "Experience", "Portfolio", "Contact"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
-                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                className="relative text-sm font-medium px-4 py-2 rounded-full text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-200"
               >
                 {item}
               </Link>
@@ -45,12 +55,13 @@ export function SiteHeader() {
           </Button>
         )}
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <ModeToggle />
-          <Button className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-md shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300">
-            <Link href="/hireme">
-            Hire me
-            </Link>
+          <Button
+            asChild
+            className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white neon-btn hover:scale-105 transition-all duration-300"
+          >
+            <Link href="/hireme">Hire me</Link>
           </Button>
         </div>
       </div>

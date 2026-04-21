@@ -27,29 +27,29 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>
-            <footer className="border-t py-12 bg-white dark:bg-gray-900">
+            <footer className="border-t border-gray-100 dark:border-gray-800/60 py-12 bg-white/80 dark:bg-[#050812]/80 backdrop-blur-sm">
               <div className="container px-4 md:px-6 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                   <div className="md:col-span-2">
                     <Link
                       href="/"
-                      className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 mb-4 inline-block"
+                      className="font-bold text-xl gradient-text mb-4 inline-block"
                     >
                       P. SHIKAMUSENGE
                     </Link>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-md">
+                    <p className="text-gray-500 dark:text-gray-500 max-w-md text-sm leading-relaxed">
                       A passionate full-stack developer dedicated to creating elegant, efficient solutions for complex
                       problems.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-4">Quick Links</h3>
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400 dark:text-gray-500">Quick Links</h3>
                     <ul className="space-y-2">
-                      {["Home", "About", "Portfolio", "Blog", "Contact"].map((item) => (
+                      {["Home", "About", "Portfolio", "Contact"].map((item) => (
                         <li key={item}>
                           <Link
-                            href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                            className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                            href={item === "Home" ? "/" : `/#${item.toLowerCase()}`}
+                            className="text-sm text-gray-500 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                           >
                             {item}
                           </Link>
@@ -58,23 +58,28 @@ export default function RootLayout({
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-4">Connect</h3>
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-400 dark:text-gray-500">Connect</h3>
                     <ul className="space-y-2">
-                      {["GitHub", "LinkedIn", "Twitter", "Instagram"].map((item) => (
-                        <li key={item}>
+                      {[
+                        { label: "GitHub", href: "https://github.com/shikamusenge" },
+                        { label: "LinkedIn", href: "https://www.linkedin.com/in/shikamusenge-philemon-86494b291/" },
+                        { label: "Twitter", href: "https://twitter.com/ShikamusengeP" },
+                      ].map((item) => (
+                        <li key={item.label}>
                           <Link
-                            href="#"
-                            className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                            href={item.href}
+                            target="_blank"
+                            className="text-sm text-gray-500 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                           >
-                            {item}
+                            {item.label}
                           </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                <div className="border-t border-gray-100 dark:border-gray-800/60 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                  <p className="text-sm text-gray-400 dark:text-gray-600">
                     © {new Date().getFullYear()} Shikamusenge Philemon. All rights reserved.
                   </p>
                   <div className="flex items-center gap-4 mt-4 md:mt-0">
