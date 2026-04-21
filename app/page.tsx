@@ -31,6 +31,16 @@ const skills = [
 
 const experiences = [
   {
+    role: "Full Stack Developer",
+    company: "Elite Dev",
+    period: "2025 – Present",
+    description: "Building and maintaining full-stack web applications, architecting scalable solutions, and leading feature development across the entire technology stack.",
+    icon: <Sparkles className="w-5 h-5" />,
+    color: "text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/30",
+    dotColor: "bg-violet-500",
+    lineColor: "shadow-[0_0_10px_rgba(139,92,246,0.9)]",
+  },
+  {
     role: "Trainer in Software Development",
     company: "Garden TSS",
     period: "Sep 2024 – Jan 2025",
@@ -181,9 +191,9 @@ export default function Home() {
 
             {/* Available badge */}
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-5">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Available for new opportunities
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 border border-violet-200 dark:border-violet-800/50">
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
+                Full Stack Developer @ Elite Dev
               </span>
             </motion.div>
 
