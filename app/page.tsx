@@ -489,7 +489,7 @@ const skills = [
     >
       <Mail className="mr-2 h-4 w-4" />
       Contact Me
-      <ArrowUpRight className="h-4 w-4" />
+      <ArrowUpRight className="ml-2 h-4 w-4" />
     </Button>
   </motion.div>
 </div>
